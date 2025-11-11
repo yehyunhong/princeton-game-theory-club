@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Footer from '@/components/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export const metadata: Metadata = {
   title: 'Princeton Game Theory Club',
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         {children}
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   )

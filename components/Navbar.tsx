@@ -1,11 +1,21 @@
 'use client'
 
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import { useState } from 'react'
+
 interface NavbarProps {
   currentPage?: string
   onPageChange?: (page: string) => void
 }
 
 export default function Navbar({ currentPage = 'home', onPageChange }: NavbarProps) {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const { scrollY } = useScroll()
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setIsScrolled(latest > 50)
+  })
+
   const handleClick = (page: string, e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     if (onPageChange) {
@@ -14,73 +24,46 @@ export default function Navbar({ currentPage = 'home', onPageChange }: NavbarPro
   }
 
   return (
-    <nav className="bg-princeton-black py-4 sticky top-0 z-50 shadow-lg">
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{
+        backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.95)' : 'rgba(0, 0, 0, 1)',
+        backdropFilter: isScrolled ? 'blur(10px)' : 'blur(0px)',
+      }}
+      transition={{ duration: 0.2 }}
+      className="py-4 sticky top-0 z-50 shadow-lg"
+    >
       <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-        <a 
-          href="#" 
-          onClick={(e) => handleClick('home', e)} 
-          className="text-white text-2xl font-bold"
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          href="#"
+          onClick={(e) => handleClick('home', e)}
+          className="text-white text-2xl font-bold cursor-pointer"
         >
           Princeton <span className="text-princeton-orange">Game Theory</span>
-        </a>
+        </motion.a>
         <ul className="flex gap-8 list-none">
-          <li>
-            <a 
-              href="#" 
-              onClick={(e) => handleClick('home', e)}
-              className={`transition-colors ${currentPage === 'home' ? 'text-princeton-orange' : 'text-white hover:text-princeton-orange'}`}
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#" 
-              onClick={(e) => handleClick('about', e)}
-              className={`transition-colors ${currentPage === 'about' ? 'text-princeton-orange' : 'text-white hover:text-princeton-orange'}`}
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#" 
-              onClick={(e) => handleClick('events', e)}
-              className={`transition-colors ${currentPage === 'events' ? 'text-princeton-orange' : 'text-white hover:text-princeton-orange'}`}
-            >
-              Events
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#" 
-              onClick={(e) => handleClick('resources', e)}
-              className={`transition-colors ${currentPage === 'resources' ? 'text-princeton-orange' : 'text-white hover:text-princeton-orange'}`}
-            >
-              Resources
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#" 
-              onClick={(e) => handleClick('team', e)}
-              className={`transition-colors ${currentPage === 'team' ? 'text-princeton-orange' : 'text-white hover:text-princeton-orange'}`}
-            >
-              Team
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#" 
-              onClick={(e) => handleClick('contact', e)}
-              className={`transition-colors ${currentPage === 'contact' ? 'text-princeton-orange' : 'text-white hover:text-princeton-orange'}`}
-            >
-              Contact
-            </a>
-          </li>
+          {['home', 'about', 'events', 'resources', 'team', 'contact'].map((page) => (
+            <li key={page}>
+              <motion.a
+                whileHover={{ y: -2 }}
+                whileTap={{ y: 0 }}
+                href="#"
+                onClick={(e) => handleClick(page, e)}
+                className={`transition-colors capitalize ${
+                  currentPage === page
+                    ? 'text-princeton-orange'
+                    : 'text-white hover:text-princeton-orange'
+                }`}
+              >
+                {page}
+              </motion.a>
+            </li>
+          ))}
         </ul>
       </div>
-    </nav>
+    </motion.nav>
   )
 }
 
