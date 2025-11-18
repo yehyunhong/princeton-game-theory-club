@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { fetchFromBackend } from '@/lib/backend'
+import { fallbackEvents } from '@/data/events'
 
 export const revalidate = 300
 
@@ -13,9 +14,9 @@ export async function GET() {
     const events = await response.json()
     return NextResponse.json(events)
   } catch (error) {
-    return NextResponse.json(
-      { message: error instanceof Error ? error.message : 'Failed to load events' },
-      { status: 502 }
-    )
+    console.error('Falling back to static events:', error)
+    return NextResponse.json(fallbackEvents, {
+      headers: { 'x-backend-status': 'fallback' },
+    })
   }
 }
