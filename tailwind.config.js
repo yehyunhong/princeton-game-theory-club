@@ -10,6 +10,13 @@ module.exports = {
       colors: {
         'princeton-orange': '#FF8F00',
         'princeton-black': '#000000',
+        'light-salmon': '#ECACA2',
+        'red-orange': '#C84300',
+        'grey': '#79797B',
+        'cream': '#FFFEEC',
+      },
+      fontFamily: {
+        'montserrat': ['Montserrat', 'sans-serif'],
       },
     },
   },

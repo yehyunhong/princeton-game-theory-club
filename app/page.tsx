@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     const hash = window.location.hash.slice(1)
-    if (hash && ['home', 'about', 'events', 'resources', 'team', 'contact'].includes(hash)) {
+    if (hash && ['home', 'about', 'events', 'resources', 'team', 'contact', 'support-us', 'join'].includes(hash)) {
       setCurrentPage(hash)
     }
   }, [])

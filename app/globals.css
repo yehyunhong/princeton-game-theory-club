@@ -15,3 +15,31 @@ body {
   scroll-margin-top: 80px;
 }
 
+/* Navbar link underline animation */
+.navbar-link {
+  position: relative;
+  text-decoration: none;
+  color: #000000;
+  transition: color 300ms ease-in-out;
+}
+
+.navbar-link:hover {
+  color: #C84300;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  right: 10px;
+  height: 1px;
+  background-color: #C84300;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.navbar-link:hover::after {
+  opacity: 1;
+}
+

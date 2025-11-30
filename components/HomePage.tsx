@@ -1,108 +1,118 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ScrollAnimation, StaggerContainer, StaggerItem } from './ScrollAnimation'
 
 interface HomePageProps {
   onNavigate?: (page: string) => void
 }
 
+const imgSuitHeart1 = "http://localhost:3845/assets/259a027ca82786d1f16d3c6cd673b9bccb53d2e8.png"
+const imgSuitClub1 = "http://localhost:3845/assets/9e08bbd400706887ebe2d9669521db4893b1396f.png"
+const imgSuitDiamond2 = "http://localhost:3845/assets/954ee3f218b83ad9d64c99e5cd6109f70fd1d3e9.png"
+const imgSuitSpade2 = "http://localhost:3845/assets/0795d5c0441deded79bbff2b65c5fa6416d68519.png"
+
 export default function HomePage({ onNavigate }: HomePageProps) {
   return (
     <>
-      <section className="bg-gradient-to-br from-princeton-black to-gray-900 text-white py-24 text-center relative overflow-hidden">
-        {/* Animated background elements */}
-        <motion.div
-          className="absolute inset-0 opacity-10"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
-          style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255, 143, 0, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 143, 0, 0.2) 0%, transparent 50%)',
-          }}
-        />
-        
-        <div className="max-w-4xl mx-auto px-8 relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.21, 1.11, 0.81, 0.99] }}
-            className="text-5xl font-bold mb-4"
+      {/* Main Title Section */}
+      <section className="w-full flex items-end justify-center p-[10px] py-[128px]">
+        <div className="w-full max-w-[1440px] text-center">
+          <div 
+            className="font-[var(--font-montserrat)] font-semibold text-[96px] leading-normal text-center"
+            style={{
+              background: 'linear-gradient(to right, #000000 0%, #C84300 76.442%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontFamily: 'var(--font-montserrat), sans-serif',
+            }}
           >
-            Princeton Game Theory Club
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 1.11, 0.81, 0.99] }}
-            className="text-xl mb-8 text-gray-300"
-          >
-            Exploring strategic thinking, decision-making, and rational behavior
-          </motion.p>
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.21, 1.11, 0.81, 0.99] }}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => onNavigate?.('about')}
-            className="inline-block bg-princeton-orange text-white px-10 py-4 rounded-full font-bold transition-shadow hover:shadow-lg hover:shadow-princeton-orange/30 cursor-pointer"
-          >
-            Learn More
-          </motion.button>
+            <div style={{ marginBottom: 0 }}>PRINCETON</div>
+            <div>GAME THEORY CLUB</div>
+          </div>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-8 py-16">
-        <div className="mb-16">
-          <ScrollAnimation direction="up">
-            <h2 className="text-4xl font-bold mb-4 text-princeton-black relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-princeton-orange">
-              What We Do
-            </h2>
-          </ScrollAnimation>
-          
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            <StaggerItem>
-              <motion.div
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow"
-              >
-                <h3 className="text-princeton-orange text-2xl mb-4 font-semibold">Weekly Seminars</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Join us for engaging discussions on classical and modern game theory topics, from Nash equilibria to mechanism design.
-                </p>
-              </motion.div>
-            </StaggerItem>
-            <StaggerItem>
-              <motion.div
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow"
-              >
-                <h3 className="text-princeton-orange text-2xl mb-4 font-semibold">Research Groups</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Collaborate with fellow students on original research projects in game theory, economics, and computational applications.
-                </p>
-              </motion.div>
-            </StaggerItem>
-            <StaggerItem>
-              <motion.div
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow"
-              >
-                <h3 className="text-princeton-orange text-2xl mb-4 font-semibold">Guest Speakers</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Hear from leading academics and industry professionals about real-world applications of game theory.
-                </p>
-              </motion.div>
-            </StaggerItem>
-          </StaggerContainer>
+      {/* Tagline Section */}
+      <section className="w-full flex items-center justify-center px-[60px] py-[46px]">
+        <p 
+          className="font-[var(--font-alegreya)] font-normal text-[32px] text-center text-black max-w-[1320px]"
+          style={{
+            fontFamily: 'var(--font-alegreya), serif'
+          }}
+        >
+          Fostering a community built on a shared love of puzzles and strategy idk
+        </p>
+      </section>
+
+      {/* Buttons Section */}
+      <section className="w-full flex items-start justify-center gap-[29px] px-[10px] py-[20px]">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onNavigate?.('join')}
+          className="bg-[#c84300] h-[45px] flex items-center justify-center px-[15px] py-[8px] rounded-[5px] cursor-pointer"
+        >
+          <p className="font-[var(--font-montserrat)] font-normal text-[24px] text-white whitespace-nowrap">
+            Join Us
+          </p>
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onNavigate?.('about')}
+          className="border border-[#c84300] border-solid h-[45px] flex items-center justify-center px-[15px] py-[8px] rounded-[5px] cursor-pointer bg-transparent"
+        >
+          <p className="font-[var(--font-montserrat)] font-normal text-[24px] text-[#c84300] whitespace-nowrap">
+            Learn More
+          </p>
+        </motion.button>
+      </section>
+
+      {/* Suits Section */}
+      <section className="w-full flex items-start justify-center gap-[10px] px-[10px] py-[20px]">
+        <div className="h-[76px] w-[77px] relative">
+          <img alt="Heart suit" className="w-full h-full object-contain pointer-events-none" src={imgSuitHeart1} />
         </div>
-      </div>
+        <div className="h-[76px] w-[75px] relative">
+          <img alt="Club suit" className="w-full h-full object-contain pointer-events-none" src={imgSuitClub1} />
+        </div>
+        <div className="h-[76px] w-[63px] relative">
+          <img alt="Diamond suit" className="w-full h-full object-contain pointer-events-none" src={imgSuitDiamond2} />
+        </div>
+        <div className="h-[76px] w-[68px] relative">
+          <img alt="Spade suit" className="w-full h-full object-contain pointer-events-none" src={imgSuitSpade2} />
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="bg-[rgba(200,67,0,0.12)] w-full flex flex-col items-center min-h-[380px] py-0 px-0">
+        <div className="w-full flex items-end justify-center p-[10px] h-[132px]">
+          <h2 className="font-[var(--font-montserrat)] font-semibold text-[64px] text-black text-center">
+            Questions?
+          </h2>
+        </div>
+        <div className="w-full flex items-center justify-center px-[150px] py-[10px] min-h-[189px]">
+          <p 
+            className="font-[var(--font-alegreya)] font-normal text-[32px] text-black text-center max-w-[1140px]"
+            style={{
+              fontFamily: 'var(--font-alegreya), serif'
+            }}
+          >
+            Have questions about how to get a 4.0 gpa? Perfect! Please email us!
+          </p>
+        </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onNavigate?.('contact')}
+          className="bg-[#c84300] h-[59px] flex items-center justify-center px-[15px] py-[6px] rounded-[5px] w-[226px] cursor-pointer"
+        >
+          <p className="font-[var(--font-montserrat)] font-normal text-[24px] text-white whitespace-nowrap">
+            Email Us
+          </p>
+        </motion.button>
+      </section>
     </>
   )
 }

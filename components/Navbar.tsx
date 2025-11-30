@@ -1,21 +1,25 @@
 'use client'
 
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 interface NavbarProps {
   currentPage?: string
   onPageChange?: (page: string) => void
 }
 
+const imgLogo = "gtc_logo.png"
+
+// Menu items matching Figma design
+const menuItems = [
+  { label: 'ABOUT', page: 'about' },
+  { label: 'EVENTS', page: 'events' },
+  { label: 'PUZZLES', page: 'resources' },
+  { label: 'SUPPORT US', page: 'support-us' },
+  { label: 'CONTACT', page: 'contact' },
+  { label: 'JOIN', page: 'join' },
+]
+
 export default function Navbar({ currentPage = 'home', onPageChange }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const { scrollY } = useScroll()
-
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setIsScrolled(latest > 50)
-  })
-
   const handleClick = (page: string, e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     if (onPageChange) {
@@ -24,46 +28,46 @@ export default function Navbar({ currentPage = 'home', onPageChange }: NavbarPro
   }
 
   return (
-    <motion.nav
-      initial={{ y: 0 }}
-      animate={{
-        backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.95)' : 'rgba(0, 0, 0, 1)',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'blur(0px)',
-      }}
-      transition={{ duration: 0.2 }}
-      className="py-4 sticky top-0 z-50 shadow-lg"
-    >
-      <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
+    <nav className="bg-cream sticky top-0 z-50 w-full">
+      <div className="w-full h-[85px] flex items-center justify-between pl-[20px]">
+        {/* Logo */}
         <motion.a
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           href="#"
           onClick={(e) => handleClick('home', e)}
-          className="text-white text-2xl font-bold cursor-pointer"
+          className="h-[75px] w-[75px] relative shrink-0 cursor-pointer"
         >
-          Princeton <span className="text-princeton-orange">Game Theory</span>
+          <img 
+            alt="Princeton Game Theory Club Logo" 
+            className="w-full h-full object-contain pointer-events-none" 
+            src={imgLogo} 
+          />
         </motion.a>
-        <ul className="flex gap-8 list-none">
-          {['home', 'about', 'events', 'resources', 'team', 'contact'].map((page) => (
-            <li key={page}>
-              <motion.a
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
-                href="#"
-                onClick={(e) => handleClick(page, e)}
-                className={`transition-colors capitalize ${
-                  currentPage === page
-                    ? 'text-princeton-orange'
-                    : 'text-white hover:text-princeton-orange'
-                }`}
-              >
-                {page}
-              </motion.a>
-            </li>
+
+        {/* Menu */}
+        <div className="flex gap-[20px] items-center justify-end px-[20px]">
+          {menuItems.map((item) => (
+            <motion.a
+              key={item.page}
+              whileTap={{ scale: 0.98 }}
+              href="#"
+              onClick={(e) => handleClick(item.page, e)}
+              className="navbar-link uppercase whitespace-nowrap px-[10px] py-[10px] cursor-pointer"
+              style={{ 
+                fontFamily: 'var(--font-montserrat), sans-serif',
+                fontWeight: 400,
+                fontSize: '18px',
+                fontStyle: 'normal',
+                lineHeight: 'normal'
+              }}
+            >
+              {item.label}
+            </motion.a>
           ))}
-        </ul>
+        </div>
       </div>
-    </motion.nav>
+    </nav>
   )
 }
 

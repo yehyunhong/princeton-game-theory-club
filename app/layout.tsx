@@ -1,7 +1,21 @@
 import type { Metadata } from 'next'
+import { Montserrat } from 'next/font/google'
+import { Alegreya } from 'next/font/google'
 import './globals.css'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-montserrat',
+})
+
+const alegreya = Alegreya({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-alegreya',
+})
 
 export const metadata: Metadata = {
   title: 'Princeton Game Theory Club',
@@ -14,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${montserrat.variable} ${alegreya.variable}`}>
       <body>
         {children}
         <Footer />
