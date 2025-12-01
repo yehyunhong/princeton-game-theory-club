@@ -4,10 +4,19 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #FFFEEC;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+  font-family: var(--font-alegreya), serif;
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  color: #000000;
 }
 
 /* Smooth scroll offset for fixed navbar */
@@ -43,3 +52,29 @@ body {
   opacity: 1;
 }
 
+h1 {
+  background: linear-gradient(to right, #000000 0%, #C84300 76.442%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  font-size: 80px;
+}
+
+h2 {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: left;
+  font-size: 35px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.section-content {
+  margin-left: 100px;
+  margin-right: 100px;
+}

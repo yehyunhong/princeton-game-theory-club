@@ -10,6 +10,7 @@ interface ScrollAnimationProps {
   direction?: 'up' | 'down' | 'left' | 'right' | 'fade'
   className?: string
   stagger?: boolean
+  immediate?: boolean
 }
 
 export function ScrollAnimation({ 
@@ -17,10 +18,12 @@ export function ScrollAnimation({
   delay = 0, 
   direction = 'up',
   className = '',
-  stagger = false
+  stagger = false,
+  immediate = false
 }: ScrollAnimationProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const shouldAnimate = immediate ? true : isInView
 
   const variants = {
     hidden: {
@@ -46,7 +49,7 @@ export function ScrollAnimation({
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      animate={shouldAnimate ? 'visible' : 'hidden'}
       variants={variants}
       className={className}
     >

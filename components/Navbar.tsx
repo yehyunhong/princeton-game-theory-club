@@ -7,10 +7,9 @@ interface NavbarProps {
   onPageChange?: (page: string) => void
 }
 
-const imgLogo = "gtc_logo.png"
-
 // Menu items matching Figma design
 const menuItems = [
+  { label: 'HOME', page: 'home' },
   { label: 'ABOUT', page: 'about' },
   { label: 'EVENTS', page: 'events' },
   { label: 'PUZZLES', page: 'resources' },
@@ -41,7 +40,7 @@ export default function Navbar({ currentPage = 'home', onPageChange }: NavbarPro
           <img 
             alt="Princeton Game Theory Club Logo" 
             className="w-full h-full object-contain pointer-events-none" 
-            src={imgLogo} 
+            src={"gtc_logo.png"} 
           />
         </motion.a>
 

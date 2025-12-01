@@ -1,117 +1,81 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { ScrollAnimation } from './ScrollAnimation'
 
 interface HomePageProps {
   onNavigate?: (page: string) => void
 }
 
-const imgSuitHeart1 = "http://localhost:3845/assets/259a027ca82786d1f16d3c6cd673b9bccb53d2e8.png"
-const imgSuitClub1 = "http://localhost:3845/assets/9e08bbd400706887ebe2d9669521db4893b1396f.png"
-const imgSuitDiamond2 = "http://localhost:3845/assets/954ee3f218b83ad9d64c99e5cd6109f70fd1d3e9.png"
-const imgSuitSpade2 = "http://localhost:3845/assets/0795d5c0441deded79bbff2b65c5fa6416d68519.png"
-
 export default function HomePage({ onNavigate }: HomePageProps) {
   return (
     <>
-      {/* Main Title Section */}
-      <section className="w-full flex items-end justify-center p-[10px] py-[128px]">
-        <div className="w-full max-w-[1440px] text-center">
-          <div 
-            className="font-[var(--font-montserrat)] font-semibold text-[96px] leading-normal text-center"
-            style={{
-              background: 'linear-gradient(to right, #000000 0%, #C84300 76.442%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              fontFamily: 'var(--font-montserrat), sans-serif',
-            }}
-          >
-            <div style={{ marginBottom: 0 }}>PRINCETON</div>
-            <div>GAME THEORY CLUB</div>
-          </div>
+      {/* Club name */}
+      <section className="w-full flex items-end pt-[20px] pb-[20px]">
+        <div className="w-full text-center">
+          <ScrollAnimation immediate>
+            <h1>
+              PRINCETON <br />GAME THEORY CLUB
+            </h1>
+          </ScrollAnimation>
         </div>
       </section>
 
-      {/* Tagline Section */}
-      <section className="w-full flex items-center justify-center px-[60px] py-[46px]">
-        <p 
-          className="font-[var(--font-alegreya)] font-normal text-[32px] text-center text-black max-w-[1320px]"
-          style={{
-            fontFamily: 'var(--font-alegreya), serif'
-          }}
-        >
-          Fostering a community built on a shared love of puzzles and strategy idk
-        </p>
-      </section>
-
-      {/* Buttons Section */}
-      <section className="w-full flex items-start justify-center gap-[29px] px-[10px] py-[20px]">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => onNavigate?.('join')}
-          className="bg-[#c84300] h-[45px] flex items-center justify-center px-[15px] py-[8px] rounded-[5px] cursor-pointer"
-        >
-          <p className="font-[var(--font-montserrat)] font-normal text-[24px] text-white whitespace-nowrap">
-            Join Us
+      {/* Club blurb */}
+      <section className="w-full pb-[40px] px-[50px]">
+        <ScrollAnimation immediate delay={0.1}>
+          <p style={{ fontSize: '28px' }}>
+          Exploring strategic thinking, decision-making, and rational behavior.
           </p>
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => onNavigate?.('about')}
-          className="border border-[#c84300] border-solid h-[45px] flex items-center justify-center px-[15px] py-[8px] rounded-[5px] cursor-pointer bg-transparent"
-        >
-          <p className="font-[var(--font-montserrat)] font-normal text-[24px] text-[#c84300] whitespace-nowrap">
-            Learn More
-          </p>
-        </motion.button>
+        </ScrollAnimation>
       </section>
 
       {/* Suits Section */}
-      <section className="w-full flex items-start justify-center gap-[10px] px-[10px] py-[20px]">
-        <div className="h-[76px] w-[77px] relative">
-          <img alt="Heart suit" className="w-full h-full object-contain pointer-events-none" src={imgSuitHeart1} />
-        </div>
-        <div className="h-[76px] w-[75px] relative">
-          <img alt="Club suit" className="w-full h-full object-contain pointer-events-none" src={imgSuitClub1} />
-        </div>
-        <div className="h-[76px] w-[63px] relative">
-          <img alt="Diamond suit" className="w-full h-full object-contain pointer-events-none" src={imgSuitDiamond2} />
-        </div>
-        <div className="h-[76px] w-[68px] relative">
-          <img alt="Spade suit" className="w-full h-full object-contain pointer-events-none" src={imgSuitSpade2} />
-        </div>
+      <section className="pb-[40px]">
+        <ScrollAnimation immediate delay={0.2}>
+          <div className="w-full h-[75px] flex items-end justify-center gap-[10%]">
+            <img alt="Heart suit" className="h-full" src="suit_heart.png" />
+            <img alt="Heart suit" className="h-full" src="suit_club.png" />
+            <img alt="Heart suit" className="h-full" src="suit_diamond.png" />
+            <img alt="Heart suit" className="h-full" src="suit_spade.png" />
+          </div>
+        </ScrollAnimation>
       </section>
 
-      {/* Contact Section */}
-      <section className="bg-[rgba(200,67,0,0.12)] w-full flex flex-col items-center min-h-[380px] py-0 px-0">
-        <div className="w-full flex items-end justify-center p-[10px] h-[132px]">
-          <h2 className="font-[var(--font-montserrat)] font-semibold text-[64px] text-black text-center">
-            Questions?
-          </h2>
-        </div>
-        <div className="w-full flex items-center justify-center px-[150px] py-[10px] min-h-[189px]">
-          <p 
-            className="font-[var(--font-alegreya)] font-normal text-[32px] text-black text-center max-w-[1140px]"
-            style={{
-              fontFamily: 'var(--font-alegreya), serif'
-            }}
-          >
-            Have questions about how to get a 4.0 gpa? Perfect! Please email us!
+      {/* Who We Are */}
+      <section className="section-content pb-[40px]">
+        <ScrollAnimation immediate delay={0.3}>
+          <h2>WHO WE ARE</h2>
+        </ScrollAnimation>
+        <ScrollAnimation immediate delay={0.4}>
+          <p style={{ fontSize: '24px', textAlign: 'left' }}>
+            The Princeton Game Theory Club is a community of students passionate about strategic thinking, decision-making, and rational behavior. We explore the fascinating world of game theory through discussions, puzzles, and collaborative problem-solving. Whether you're a seasoned strategist or just curious about how people make decisions, you'll find a welcoming environment to learn and grow.
           </p>
-        </div>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => onNavigate?.('contact')}
-          className="bg-[#c84300] h-[59px] flex items-center justify-center px-[15px] py-[6px] rounded-[5px] w-[226px] cursor-pointer"
-        >
-          <p className="font-[var(--font-montserrat)] font-normal text-[24px] text-white whitespace-nowrap">
-            Email Us
+        </ScrollAnimation>
+      </section>
+
+      {/* Weekly Meetings */}
+      <section className="section-content pb-[40px]">
+        <ScrollAnimation immediate delay={0.5}>
+          <h2>WEEKLY MEETINGS</h2>
+        </ScrollAnimation>
+        <ScrollAnimation immediate delay={0.6}>
+          <p style={{ fontSize: '24px', textAlign: 'left' }}>
+            Join us every week for engaging discussions, strategic puzzles, and collaborative learning. Our meetings are open to all Princeton students, regardless of experience level. We cover topics ranging from classic game theory concepts to modern applications in economics, politics, and everyday decision-making.
           </p>
-        </motion.button>
+        </ScrollAnimation>
+      </section>
+
+      {/* Join Us */}
+      <section className="section-content pb-[40px]">
+        <ScrollAnimation immediate delay={0.7}>
+          <h2>JOIN US</h2>
+        </ScrollAnimation>
+        <ScrollAnimation immediate delay={0.8}>
+          <p style={{ fontSize: '24px', textAlign: 'left' }}>
+            Interested in joining our community? We welcome students from all backgrounds and experience levels. No prior knowledge of game theory is required—just bring your curiosity and enthusiasm for strategic thinking!
+          </p>
+        </ScrollAnimation>
       </section>
     </>
   )
