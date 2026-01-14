@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>We’ll be back soon</title>
+
+    <!-- Prevent indexing while this placeholder is up -->
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+
+    <style>
+      :root {
+        --bg: #0b0f17;
+        --card: rgba(255, 255, 255, 0.08);
+        --border: rgba(255, 255, 255, 0.16);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.70);
+        --muted2: rgba(255, 255, 255, 0.55);
+        --accent: rgba(120, 170, 255, 0.9);
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+        --radius: 18px;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(1200px 800px at 20% 10%, rgba(120,170,255,.25), transparent 60%),
+                    radial-gradient(900px 700px at 80% 30%, rgba(255,120,180,.18), transparent 55%),
+                    radial-gradient(1000px 900px at 50% 90%, rgba(120,255,190,.12), transparent 60%),
+                    var(--bg);
+        display: grid;
+        place-items: center;
+        padding: 28px 16px;
+      }
+
+      .wrap {
+        width: min(920px, 100%);
+        display: grid;
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 28px;
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.06);
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 0 6px rgba(120,170,255,0.15);
+      }
+
+      h1 {
+        margin: 10px 0 6px;
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+      }
+
+      @media (max-width: 820px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+
+      .list {
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: var(--muted);
+      }
+
+      .check {
+        margin-top: 2px;
+        width: 18px;
+        height: 18px;
+        flex: 0 0 18px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.06);
+        display: grid;
+        place-items: center;
+      }
+
+      .check svg { width: 12px; height: 12px; opacity: 0.9; }
+
+      .side h2 {
+        margin: 0 0 10px;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+        color: rgba(255,255,255,0.86);
+      }
+
+      .side p { font-size: 14px; color: var(--muted2); }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-size: 13px;
+        color: var(--muted2);
+      }
+
+      a { color: rgba(170, 205, 255, 0.95); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Optional small “pulse” animation for the dot */
+      @media (prefers-reduced-motion: no-preference) {
+        .dot {
+          animation: pulse 1.8s infinite ease-in-out;
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.15); }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="wrap" role="main" aria-label="Maintenance page">
+      <section class="card">
+        <div class="top">
+          <div class="badge" aria-label="Status">
+            <span class="dot" aria-hidden="true"></span>
+            Site temporarily unavailable
+          </div>
+          <div class="badge">
+            <span aria-hidden="true">⏳</span>
+            Check back soon
+          </div>
+        </div>
+
+        <h1>We’re updating things.</h1>
+        <p>
+          This website is temporarily offline while we fix some information and finalize updates.
+          Thanks for your patience.
+        </p>
+
+        <div class="grid" style="margin-top: 18px;">
+          <div class="card" style="padding: 18px; margin: 0;">
+            <p style="color: rgba(255,255,255,0.86); font-weight: 600; margin-bottom: 8px;">
+              What’s happening
+            </p>
+            <ul class="list">
+              <li>
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>
+                <span>We discovered some incorrect content and are correcting it.</span>
+              </li>
+              <li>
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>
+                <span>We’ll republish as soon as updates are verified.</span>
+              </li>
+              <li>
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>
+                <span>Search engines are asked not to index this placeholder.</span>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="card side" style="padding: 18px; margin: 0;">
+            <h2>Contact</h2>
+            <p>
+              If you need to reach us, email:
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </p>
+            <p style="margin-top: 10px;">
+              (Replace with your real contact info — or delete this box.)
+            </p>
+          </aside>
+        </div>
+
+        <div class="footer" style="margin-top: 18px;">
+          <span>© <span id="y"></span> Your Site Name</span>
+          <span>Last updated: <span id="d"></span></span>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Tiny helpers for the footer date — safe even if JS is blocked
+      (function () {
+        var now = new Date();
+        var y = document.getElementById("y");
+        var d = document.getElementById("d");
+        if (y) y.textContent = String(now.getFullYear());
+        if (d) d.textContent = now.toLocaleDateString(undefined, {
+          year: "numeric",
+          month: "short",
+          day: "2-digit"
+        });
+      })();
+    </script>
+  </body>
+</html>
