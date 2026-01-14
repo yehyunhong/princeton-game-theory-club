@@ -15,7 +15,7 @@ export default function AboutPage() {
         
         <ScrollAnimation direction="up" delay={0.1}>
           <p className="text-lg leading-relaxed mb-8 text-gray-700">
-            The Princeton Game Theory Club is a student-run organization dedicated to exploring the fascinating world of strategic decision-making. Founded in 2020, we bring together students from mathematics, economics, computer science, and beyond to study how rational actors interact in competitive and cooperative scenarios.
+            The Princeton Game Theory Club is a student-run organization dedicated to exploring the fascinating world of strategic decision-making. Founded in October 2025, we bring together students from mathematics, economics, computer science, and beyond to study how rational actors interact in competitive and cooperative scenarios.
           </p>
         </ScrollAnimation>
         
