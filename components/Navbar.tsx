@@ -12,7 +12,6 @@ const menuItems = [
   { label: 'HOME', page: 'home' },
   { label: 'ABOUT', page: 'about' },
   { label: 'EVENTS', page: 'events' },
-  { label: 'PUZZLES', page: 'resources' },
   { label: 'SUPPORT US', page: 'support-us' },
   { label: 'CONTACT', page: 'contact' },
   { label: 'JOIN', page: 'join' },

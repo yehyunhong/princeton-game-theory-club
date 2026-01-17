@@ -1,10 +1,11 @@
+// TODO: "Members" page; make the join page in the navbar a button; add dei statement to join page; home should be current events, about us should have current home content, events should have gcal, members should have dropdown w officers and members, join page with current contact info with embedded google form and newsletter, "our work" page for current fish progress, "play fish" tab in the future
+
 'use client'
 
 import { useState, useEffect } from 'react'
 import HomePage from '@/components/HomePage'
 import AboutPage from '@/components/AboutPage'
 import EventsPage from '@/components/EventsPage'
-import ResourcesPage from '@/components/ResourcesPage'
 import TeamPage from '@/components/TeamPage'
 import ContactPage from '@/components/ContactPage'
 import Navbar from '@/components/Navbar'
@@ -14,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     const hash = window.location.hash.slice(1)
-    if (hash && ['home', 'about', 'events', 'resources', 'team', 'contact', 'support-us', 'join'].includes(hash)) {
+    if (hash && ['home', 'about', 'events', 'team', 'contact', 'support-us', 'join'].includes(hash)) {
       setCurrentPage(hash)
     }
   }, [])
@@ -33,8 +34,6 @@ export default function Home() {
         return <AboutPage />
       case 'events':
         return <EventsPage />
-      case 'resources':
-        return <ResourcesPage />
       case 'team':
         return <TeamPage />
       case 'contact':

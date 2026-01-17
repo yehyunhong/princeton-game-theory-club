@@ -50,14 +50,20 @@ export default function EventsPage() {
   }, [])
 
   return (
-    <div className="max-w-7xl mx-auto px-8 py-16">
+    <>
+      {/* title */}
+      <section className="w-full flex items-end pt-[20px] pb-[20px]">
+        <div className="w-full text-center">
+          <ScrollAnimation immediate>
+            <h1>
+              UPCOMING EVENTS
+            </h1>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-8 py-16">
       <div className="mb-16">
-        <ScrollAnimation direction="up">
-          <h2 className="text-4xl font-bold mb-4 text-princeton-black relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-princeton-orange">
-            Upcoming Events
-          </h2>
-        </ScrollAnimation>
-        
         <StaggerContainer className="mt-8 space-y-6" staggerDelay={0.15}>
           {loading && (
             <div className="text-gray-500">Loading events...</div>
@@ -88,5 +94,7 @@ export default function EventsPage() {
         </StaggerContainer>
       </div>
     </div>
+
+    </>
   )
 }
