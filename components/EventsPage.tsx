@@ -62,39 +62,15 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-8 py-16">
-      <div className="mb-16">
-        <StaggerContainer className="mt-8 space-y-6" staggerDelay={0.15}>
-          {loading && (
-            <div className="text-gray-500">Loading events...</div>
-          )}
-
-          {error && (
-            <div className="text-red-600">
-              {error}. Please try refreshing the page.
-            </div>
-          )}
-
-          {!loading && !error && events.length === 0 && (
-            <div className="text-gray-600">No events scheduled right now. Check back soon!</div>
-          )}
-
-          {!loading && !error && events.map((event) => (
-            <StaggerItem key={event.id}>
-              <motion.div
-                whileHover={{ x: 8, transition: { duration: 0.2 } }}
-                className="bg-white p-6 rounded-lg shadow-md border-l-4 border-princeton-orange hover:shadow-xl transition-shadow cursor-pointer"
-              >
-                <div className="text-princeton-orange font-bold text-sm mb-2">{event.date}</div>
-                <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
-                <p className="text-gray-600">{event.description}</p>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+      <div className="w-full flex justify-center pt-[30px] pb-[100px] px-[50px]">
+        <iframe 
+          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&showTitle=0&showTabs=0&showCalendars=0&showTz=0&title&src=Y18yNzFjNjlkZTI0MzAxMmQ3OGZiM2EzZDYyNmExZTVmYmNhMTNhNTE5ODY0M2NlMzFiNzBiOWZjZjcyMjgzMWViQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f6bf26" 
+          width="800" 
+          height="600" 
+          frameBorder="0" 
+          scrolling="no"
+        ></iframe>
       </div>
-    </div>
-
     </>
   )
 }
