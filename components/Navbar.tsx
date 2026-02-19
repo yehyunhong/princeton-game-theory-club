@@ -1,71 +1,36 @@
-'use client'
-
-import { motion } from 'framer-motion'
-
-interface NavbarProps {
-  currentPage?: string
-  onPageChange?: (page: string) => void
-}
-
-// Menu items matching Figma design
-const menuItems = [
-  { label: 'HOME', page: 'home' },
-  { label: 'ABOUT', page: 'about' },
-  { label: 'EVENTS', page: 'events' },
-  { label: 'SUPPORT US', page: 'support-us' },
-  { label: 'CONTACT', page: 'contact' },
-  { label: 'JOIN', page: 'join' },
+const links = [
+  { label: 'About', href: '#about' },
+  { label: 'Events', href: '#events' },
+  { label: 'Puzzles', href: '#puzzles' },
+  { label: 'Support Us', href: '#support' },
+  { label: 'Join', href: '#join' },
 ]
 
-export default function Navbar({ currentPage = 'home', onPageChange }: NavbarProps) {
-  const handleClick = (page: string, e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    if (onPageChange) {
-      onPageChange(page)
-    }
-  }
-
+export default function Navbar() {
   return (
-    <nav className="bg-cream sticky top-0 z-50 w-full">
-      <div className="w-full h-[85px] flex items-center justify-between pl-[20px]">
-        {/* Logo */}
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          href="#"
-          onClick={(e) => handleClick('home', e)}
-          className="h-[75px] w-[75px] relative shrink-0 cursor-pointer"
-        >
-          <img 
-            alt="Princeton Game Theory Club Logo" 
-            className="w-full h-full object-contain pointer-events-none" 
-            src={"gtc_logo.png"} 
+    <nav className="sticky top-0 z-50 border-b border-gtc-beige bg-gtc-cream/95 backdrop-blur">
+      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
+        <a href="#home" className="flex items-center gap-3">
+          <img
+            src="/gtc_logo.png"
+            alt="Princeton Game Theory Club logo"
+            className="h-10 w-10 object-contain"
           />
-        </motion.a>
+          <span className="hidden sm:block font-display text-sm uppercase tracking-[0.35em] text-gtc-brown">
+            Princeton Game Theory Club
+          </span>
+        </a>
 
-        {/* Menu */}
-        <div className="flex gap-[20px] items-center justify-end px-[20px]">
-          {menuItems.map((item) => (
-            <motion.a
-              key={item.page}
-              whileTap={{ scale: 0.98 }}
-              href="#"
-              onClick={(e) => handleClick(item.page, e)}
-              className="navbar-link uppercase whitespace-nowrap px-[10px] py-[10px] cursor-pointer"
-              style={{ 
-                fontFamily: 'var(--font-montserrat), sans-serif',
-                fontWeight: 400,
-                fontSize: '18px',
-                fontStyle: 'normal',
-                lineHeight: 'normal'
-              }}
-            >
-              {item.label}
-            </motion.a>
+        <ul className="flex flex-wrap items-center justify-end gap-4 text-[0.7rem] uppercase tracking-[0.3em] text-gtc-brown/80">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} className="transition-colors hover:text-princeton-orange">
+                {link.label}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </nav>
   )
 }
-

@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
-import { Alegreya } from 'next/font/google'
+import { Cormorant_Garamond } from 'next/font/google'
+import { Source_Sans_3 } from 'next/font/google'
 import './globals.css'
 import Footer from '@/components/Footer'
 
-const montserrat = Montserrat({
+const display = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-montserrat',
+  weight: ['600', '700'],
+  variable: '--font-display',
 })
 
-const alegreya = Alegreya({
+const body = Source_Sans_3({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-alegreya',
+  weight: ['300', '400', '600'],
+  variable: '--font-body',
 })
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${alegreya.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
         {children}
         <Footer />
@@ -35,4 +35,3 @@ export default function RootLayout({
     </html>
   )
 }
-
