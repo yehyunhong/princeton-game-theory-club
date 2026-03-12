@@ -43,7 +43,12 @@ princeton-game-theory-club/
 npm install
 ```
 
-2. Run the development server:
+2. (Optional) configure the backend URL the Next.js API routes should proxy to. The default is `http://localhost:8000`, but you can override it with an environment variable:
+```bash
+export BACKEND_URL="https://your-fastapi-url"
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 ```
@@ -112,4 +117,3 @@ API documentation (Swagger UI) at `http://localhost:8000/docs`
 ## License
 
 MIT
-
