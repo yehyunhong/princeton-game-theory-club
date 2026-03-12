@@ -5,12 +5,12 @@ import { ScrollAnimation, StaggerContainer, StaggerItem } from './ScrollAnimatio
 
 export default function TeamPage() {
   const teamMembers = [
-    { initials: 'AJ', name: 'Alex Johnson', role: 'President', year: 'Economics \'26' },
-    { initials: 'SP', name: 'Sophia Patel', role: 'Vice President', year: 'Mathematics \'26' },
-    { initials: 'MC', name: 'Marcus Chen', role: 'Events Coordinator', year: 'Computer Science \'27' },
-    { initials: 'EN', name: 'Emma Nguyen', role: 'Research Lead', year: 'ORFE \'26' },
-    { initials: 'DB', name: 'David Brown', role: 'Treasurer', year: 'Economics \'27' },
-    { initials: 'LK', name: 'Lila Kumar', role: 'Communications', year: 'Politics \'26' },
+    { initials: 'YH', name: 'Yehyun Hong', role: 'President', year: 'ORFE \'28' },
+    { initials: 'JF', name: 'Julian Fente', role: 'Vice President', year: 'MAE \'28' },
+    { initials: 'NF', name: 'Nicolas Feng', role: 'Development Lead', year: 'ECE \'28' },
+    { initials: 'WV', name: 'William Varnum', role: 'Treasurer', year: 'Physics \'28' },
+    { initials: 'SC', name: 'Sophia Chen', role: 'Publicity Chair', year: 'COS \'28' },
+    { initials: 'JA', name: 'Jonathan Adhout', role: 'Secretary', year: 'ORFE \'29' },
   ]
 
   return (
